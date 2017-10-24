@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Sequences for sale.order -->
+        <record id="seq_type_mft_work_order" model="ir.sequence.type">
+            <field name="name">Mft Work Order</field>
+            <field name="code">mft.work_order</field>
+        </record>
+
+        <record id="seq_mft_work_order" model="ir.sequence">
+            <field name="name">Mft Work Order</field>
+            <field name="code">mft.work_order</field>
+            <field name="prefix">WO</field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="seq_type_mft_pcba_order" model="ir.sequence.type">
+            <field name="name">Mft PCBA Order</field>
+            <field name="code">mft.pcba_order</field>
+        </record>
+
+        <record id="seq_mft_pcba_order" model="ir.sequence">
+            <field name="name">Mft PCBA Order</field>
+            <field name="code">mft.pcba_order</field>
+            <field name="prefix">PO</field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="seq_type_mft_sb_work_order" model="ir.sequence.type">
+            <field name="name">Mft SandBox Work Order</field>
+            <field name="code">mft.sb_work_order</field>
+        </record>
+
+        <record id="seq_mft_sb_work_order" model="ir.sequence">
+            <field name="name">Mft SandBox Work Order</field>
+            <field name="code">mft.sb_work_order</field>
+            <field name="prefix">SW</field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="seq_type_mft_sb_pcba_order" model="ir.sequence.type">
+            <field name="name">Mft SandBox PCBA Order</field>
+            <field name="code">mft.sb_pcba_order</field>
+        </record>
+
+        <record id="seq_mft_sb_pcba_order" model="ir.sequence">
+            <field name="name">Mft SandBox PCBA Order</field>
+            <field name="code">mft.sb_pcba_order</field>
+            <field name="prefix">SP</field>
+            <field name="padding">6</field>
+        </record>
+
+        <record id="seq_type_mft_delivery_orders" model="ir.sequence.type">
+            <field name="name">Mft Delivery Orders</field>
+            <field name="code">mft.delivery_orders</field>
+        </record>
+
+        <record id="seq_mft_delivery_orders" model="ir.sequence">
+            <field name="name">Mft Delivery Order</field>
+            <field name="code">mft.delivery_orders</field>
+            <field name="prefix">DO</field>
+            <field name="padding">6</field>
+        </record>
+    </data>
+</openerp>

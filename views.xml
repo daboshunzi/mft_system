@@ -1,0 +1,1109 @@
+<openerp>
+    <data>
+        <record id="action_product_wo" model="ir.actions.act_window">
+            <field name="name">Product Work Order</field>
+            <field name="res_model">mft.work_order</field>
+        </record>
+
+        <record id="product_wo_form" model="ir.ui.view">
+            <field name="name">Product Work Order: form</field>
+            <field name="model">mft.work_order</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_toconfirm" states="draft" string="Request Confirm" type="object" groups="base.group_mft_leader"/>
+                        <button name="action_confirmed" states="toconfirm" string="Confirmed" type="object" groups="base.group_mft_manager"/>
+                        <button name="action_cancel" states="toconfirm,confirmed" string="Cancel" type="object" groups="base.group_mft_manager"/>
+                        <button name="action_recover" states="toconfirm,confirmed,cancel" string="Recovery" type="object" groups="base.group_mft_manager"/>
+                        <button name="action_done" states="confirmed" string="Done" type="object" groups="base.group_mft_leader"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,toconfirm,confirmed,done,cancel"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <label string="Product Work Order" />
+                            <field name="name" class="oe_inline" readonly="1"/>
+                        </h1>
+                        <group>
+                            <field name="ref_order"/>
+                            <field name="product_id" domain="[('state','=','confirmed')]"/>
+                            <field name="fw_version"/>
+                            <field name="bt_version"/>
+                            <field name="oem_id" domain="[('state','=','confirmed')]"/>
+                            <field name="count"/>
+                        </group>
+                        <field name="products_ids" readonly="1">
+                            <tree string="Products">
+                                <field name="name" readonly="1"/>
+                                <field name="mac_addr" readonly="1"/>
+                                <field name="pass_flag" readonly="1"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_wo_list" model="ir.ui.view">
+            <field name="name">Product Work Order: list</field>
+            <field name="model">mft.work_order</field>
+            <field name="arch" type="xml">
+                <tree colors="grey:state=='cancel';blue:state in ('done');">
+                    <field name="name" readonly="1"/>
+                    <field name="product_id" readonly="1"/>
+                    <field name="count" readonly="1"/>
+                    <field name="create_date" readonly="1"/>
+                    <field name="state" readonly="1" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_wo_search" model="ir.ui.view">
+            <field name="name">Product Work Order: search</field>
+            <field name="model">mft.work_order</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_product_test_group" model="ir.actions.act_window">
+            <field name="name">Product Test Group</field>
+            <field name="res_model">mft.product_test_group</field>
+        </record>
+
+        <record id="product_test_group_form" model="ir.ui.view">
+            <field name="name">Product Test Group: form</field>
+            <field name="model">mft.product_test_group</field>
+            <field name="arch" type="xml">
+                <form string="Product Test Group">
+                    <header>
+                        <button name="action_toconfirm" states="draft" string="Pre-production" type="object" groups="base.group_mft_rd"/>
+                        <button name="action_confirmed" states="toconfirm" string="Production" type="object" groups="base.group_mft_pe"/>
+                        <button name="action_stopped" states="toconfirm,confirmed" string="EOL" type="object" groups="base.group_mft_pe"/>
+                        <button name="action_recover" states="stopped,confirmed,toconfirm" string="Recovery" type="object" groups="base.group_mft_pe"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,toconfirm,confirmed,stopped"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <notebook>
+                            <page string="Procedure">
+                                <field name="procedure_line">
+                                    <tree string="ProcedureGroup">
+                                        <field name="number"/>
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <div class="oe_clear"/>
+                        <field name="description" class="oe_inline" placeholder="Description..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_test_group_list" model="ir.ui.view">
+            <field name="name">Product Test Group: list</field>
+            <field name="model">mft.product_test_group</field>
+            <field name="arch" type="xml">
+                <tree colors="grey:state=='cancel';blue:state in ('confirmed');red: state in ('stopped');">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="procedure_group_form" model="ir.ui.view">
+            <field name="name">Procedure: form</field>
+            <field name="model">mft.procedure_group</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="number"/>
+                            <field name="name"/>
+                            <field name="test_config"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_product_name" model="ir.actions.act_window">
+            <field name="name">Product Name</field>
+            <field name="res_model">mft.product_name</field>
+        </record>
+
+        <record id="product_name_form" model="ir.ui.view">
+            <field name="name">Product Name: form</field>
+            <field name="model">mft.product_name</field>
+            <field name="arch" type="xml">
+                <form string="Product Name">
+                    <header>
+                        <button name="action_toconfirm" states="draft" string="Pre-production" type="object" groups="base.group_mft_rd"/>
+                        <button name="action_confirmed" states="toconfirm" string="Production" type="object" groups="base.group_mft_pe"/>
+                        <button name="action_stopped" states="toconfirm,confirmed" string="EOL" type="object" groups="base.group_mft_pe"/>
+                        <button name="action_recover" states="stopped,confirmed,toconfirm" string="Recovery" type="object" groups="base.group_mft_pe"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,toconfirm,confirmed,stopped"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="partnumber"/>
+                            <field name="test_group_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Self-Defined ENV">
+                                <field name="product_env">
+                                    <tree string="Product Env" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="value"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Composition">
+                                <field name="pcba_line">
+                                    <tree string="PCBA Lines" editable="bottom">
+                                        <field name="pcba_id"/>
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Procedure">
+                                <field name="procedure_line">
+                                    <tree string="Procedure">
+                                        <field name="number"/>
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <div class="oe_clear"/>
+                        <field name="description" class="oe_inline" placeholder="Description..."/>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_name_list" model="ir.ui.view">
+            <field name="name">Product Name: list</field>
+            <field name="model">mft.product_name</field>
+            <field name="arch" type="xml">
+                <tree colors="grey:state=='cancel';blue:state in ('confirmed');red: state in ('stopped');">
+                    <field name="name"/>
+                    <field name="partnumber"/>
+                    <field name="description"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_name_search" model="ir.ui.view">
+            <field name="name">Product Name: search</field>
+            <field name="model">mft.product_name</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="partnumber"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="procedure_form" model="ir.ui.view">
+            <field name="name">Procedure: form</field>
+            <field name="model">mft.procedure</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="number"/>
+                            <field name="name"/>
+                            <field name="test_config"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_oem_name" model="ir.actions.act_window">
+            <field name="name">OEM Name</field>
+            <field name="res_model">mft.oem_name</field>
+        </record>
+
+        <record id="oem_name_form" model="ir.ui.view">
+            <field name="name">OEM Name: form</field>
+            <field name="model">mft.oem_name</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_toconfirm" states="draft" string="Request Confirm" type="object" groups="base.group_mft_rd"/>
+                        <button name="action_confirmed" states="toconfirm" string="Confirmed" type="object" groups="base.group_mft_pe"/>
+                        <button name="action_recover" states="confirmed" string="Recovery" type="object" groups="base.group_mft_pe"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,toconfirm,confirmed"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="language"/>
+                            <field name="website"/>
+                        </group>
+                        <notebook>
+                            <page string="Self-Defined ENV">
+                                <field name="oemname_env">
+                                    <tree string="OEMName Env" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="value"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <div class="oe_clear"/>
+                        <field name="description"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="oem_name_list" model="ir.ui.view">
+            <field name="name">OEM Name: list</field>
+            <field name="model">mft.oem_name</field>
+            <field name="arch" type="xml">
+                <tree colors="grey:state=='cancel';blue:state in ('confirmed');red: state in ('stopped');">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_print_template" model="ir.actions.act_window">
+            <field name="name">Print Template</field>
+            <field name="res_model">mft.print_template</field>
+        </record>
+
+        <record id="print_template_form" model="ir.ui.view">
+            <field name="name">Print Template: form</field>
+            <field name="model">mft.print_template</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_toconfirm" states="draft" string="Request Confirm" type="object" groups="base.group_mft_rd"/>
+                        <button name="action_confirmed" states="toconfirm" string="Confirmed" type="object" groups="base.group_mft_pe"/>
+                        <button name="action_recover" states="confirmed" string="Recovery" type="object" groups="base.group_mft_pe"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,toconfirm,confirmed"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="nick"/>
+                            <field name="name"/>
+                            <field name="width"/>
+                            <field name="height"/>
+                            <field name="fn_fields"/>
+                            <field name="template"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="print_template_list" model="ir.ui.view">
+            <field name="name">Print Template: list</field>
+            <field name="model">mft.print_template</field>
+            <field name="arch" type="xml">
+                <tree colors="grey:state in ('cancel');blue:state in ('confirmed');red: state in ('stopped');">
+                    <field name="nick"/>
+                    <field name="name"/>
+                    <field name="width"/>
+                    <field name="height"/>
+                    <field name="description"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_products" model="ir.actions.act_window">
+            <field name="name">Test Records</field>
+            <field name="res_model">mft.products</field>
+        </record>
+
+        <record id="products_form" model="ir.ui.view">
+            <field name="name">Test Records: form</field>
+            <field name="model">mft.products</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="wo_id" readonly="1"/>
+                            <field name="do_id" readonly="1"/>
+                            <field name="product_id" readonly="1"/>
+                            <field name="name" readonly="1"/>
+                            <field name="mac_addr" readonly="1"/>
+                            <field name="mac_addr2" readonly="1"/>
+                            <field name="mac_addr3" readonly="1"/>
+                            <field name="IMEI" readonly="1"/>
+                            <field name="module_version" readonly="1"/>
+                            <field name="ICCID" readonly="1"/>
+                            <field name="phone_number" readonly="1"/>
+                            <field name="private_key" readonly="1"/>
+                            <field name="public_key" readonly="1"/>
+                            <field name="encryption_sn" readonly="1"/>
+                            <field name="device_cert" readonly="1"/>
+                            <field name="pass_flag" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Composition">
+                                <field name="pcba_line_ids" readonly="1">
+                                    <tree string="Product Construction">
+                                        <field name="pcba_name"/>
+                                        <field name="pcba_sn"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Test Details">
+                                <field name="test_ids" readonly="1">
+                                    <tree string="Product Test Info">
+                                        <field name="procedure_id"/>
+                                        <field name="pass_flag"/>
+                                        <field name="test_user"/>
+                                        <field name="write_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Test Group Details">
+                                <field name="grouptest_ids" readonly="1">
+                                    <tree string="Product Test Info">
+                                        <field name="procedure_id"/>
+                                        <field name="pass_flag"/>
+                                        <field name="test_user"/>
+                                        <field name="write_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="products_list" model="ir.ui.view">
+            <field name="name">Test Records: list</field>
+            <field name="model">mft.products</field>
+            <field name="arch" type="xml">
+                <tree string="wo_products">
+                    <field name="wo_id" readonly="1"/>
+                    <field name="product_id" readonly="1"/>
+                    <field name="name" readonly="1"/>
+                    <field name="mac_addr" readonly="1"/>
+                    <field name="pass_flag" readonly="1"/>
+                    <field name="mac_addr2" readonly="1"/>
+                    <field name="mac_addr3" readonly="1"/>
+                    <field name="IMEI" readonly="1"/>
+                    <field name="module_version" readonly="1"/>
+                    <field name="ICCID" readonly="1"/>
+                    <field name="phone_number" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="products_search" model="ir.ui.view">
+            <field name="name">Test Records: search</field>
+            <field name="model">mft.products</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="wo_id"/>
+                    <field name="product_id"/>
+                    <field name="mac_addr"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="product_test_form" model="ir.ui.view">
+            <field name="name">Test Details: form</field>
+            <field name="model">mft.product_test</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1>Test Details</h1>
+                        <group>
+                            <field name="product_id" readonly="1"/>
+                            <field name="parts_id" readonly="1"/>
+                            <field name="test_user" readonly="1"/>
+                            <field name="procedure_id" readonly="1"/>
+                            <field name="pass_flag" readonly="1"/>
+                            <field name="test_result" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_grouptest_form" model="ir.ui.view">
+            <field name="name">Test Group Details: form</field>
+            <field name="model">mft.product_grouptest</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1>Test Group Details</h1>
+                        <group>
+                            <field name="product_id" readonly="1"/>
+                            <field name="parts_id" readonly="1"/>
+                            <field name="test_user" readonly="1"/>
+                            <field name="procedure_id" readonly="1"/>
+                            <field name="pass_flag" readonly="1"/>
+                            <field name="test_result" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_pcba_order" model="ir.actions.act_window">
+            <field name="name">PCBA Work Order</field>
+            <field name="res_model">mft.pcba_order</field>
+        </record>
+
+        <record id="pcba_order_form" model="ir.ui.view">
+            <field name="name">PCBA Work Order: form</field>
+            <field name="model">mft.pcba_order</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_toconfirm" states="draft" string="Request Confirm" type="object" groups="base.group_mft_leader"/>
+                        <button name="action_confirmed" states="toconfirm" string="Confirmed" type="object" groups="base.group_mft_manager"/>
+                        <button name="action_cancel" states="toconfirm,confirmed" string="Cancel" type="object" groups="base.group_mft_manager"/>
+                        <button name="action_recover" states="toconfirm,confirmed,cancel" string="Recovery" type="object" groups="base.group_mft_manager"/>
+                        <button name="action_done" states="confirmed" string="Done" type="object" groups="base.group_mft_leader"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,toconfirm,confirmed,done"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <label string="PCBA Work Order" />
+                            <field name="name" class="oe_inline" readonly="1"/>
+                        </h1>
+                        <group>
+                            <field name="ref_order"/>
+                            <field name="name_id" domain="[('state','=','confirmed')]"/>
+                            <field name="fw_version"/>
+                            <field name="bt_version"/>
+                            <field name="count"/>
+                        </group>
+                        <field name="pcba_ids" readonly="1">
+                            <tree string="pcbas">
+                                <field name="name"/>
+                                <field name="pass_flag"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pcba_order_list" model="ir.ui.view">
+            <field name="name">PCBA Work Order: list</field>
+            <field name="model">mft.pcba_order</field>
+            <field name="arch" type="xml">
+                <tree colors="grey:state=='cancel';blue:state in ('done');">
+                    <field name="name"/>
+                    <field name="name_id"/>
+                    <field name="count"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="pcba_order_search" model="ir.ui.view">
+            <field name="name">PCBA Work Order: search</field>
+            <field name="model">mft.pcba_order</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="name_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_pcba_name" model="ir.actions.act_window">
+            <field name="name">PCBA Name</field>
+            <field name="res_model">mft.pcba_name</field>
+        </record>
+
+        <record id="pcba_name_form" model="ir.ui.view">
+            <field name="name">PCBA Name: form</field>
+            <field name="model">mft.pcba_name</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_toconfirm" states="draft" string="Pre-production" type="object" groups="base.group_mft_rd"/>
+                        <button name="action_confirmed" states="toconfirm" string="Production" type="object" groups="base.group_mft_pe"/>
+                        <button name="action_stopped" states="toconfirm,confirmed" string="EOL" type="object" groups="base.group_mft_pe"/>
+                        <button name="action_recover" states="stopped,confirmed,toconfirm" string="Recovery" type="object" groups="base.group_mft_pe"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,toconfirm,confirmed,stopped"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="partnumber"/>
+                            <field name="test_group_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Self-Defined ENV">
+                                <field name="pcba_env">
+                                    <tree string="Pcba Env" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="value"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Procedure">
+                                <field name="procedure_line">
+                                    <tree string="Procedure">
+                                        <field name="number"/>
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <div class="oe_clear"/>
+                        <field name="description" class="oe_inline" placeholder="Description..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pcba_name_list" model="ir.ui.view">
+            <field name="name">PCBA Name: list</field>
+            <field name="model">mft.pcba_name</field>
+            <field name="arch" type="xml">
+                <tree colors="grey:state=='cancel';blue:state in ('confirmed');red: state in ('stopped');">
+                    <field name="name"/>
+                    <field name="partnumber"/>
+                    <field name="description"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="pcba_name_search" model="ir.ui.view">
+            <field name="name">PCBA Name: search</field>
+            <field name="model">mft.pcba_name</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="partnumber"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="pcba_procedure_form" model="ir.ui.view">
+            <field name="name">Procedure: form</field>
+            <field name="model">mft.pcba_procedure</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="number"/>
+                            <field name="name"/>
+                            <field name="test_config"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_pcba_test_group" model="ir.actions.act_window">
+            <field name="name">PCBA Test Group</field>
+            <field name="res_model">mft.pcba_test_group</field>
+        </record>
+
+        <record id="pcba_test_group_form" model="ir.ui.view">
+            <field name="name">PCBA Test Group: form</field>
+            <field name="model">mft.pcba_test_group</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_toconfirm" states="draft" string="Pre-production" type="object" groups="base.group_mft_rd"/>
+                        <button name="action_confirmed" states="toconfirm" string="Production" type="object" groups="base.group_mft_pe"/>
+                        <button name="action_stopped" states="toconfirm,confirmed" string="EOL" type="object" groups="base.group_mft_pe"/>
+                        <button name="action_recover" states="stopped,confirmed,toconfirm" string="Recovery" type="object" groups="base.group_mft_pe"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,toconfirm,confirmed,stopped"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <field name="procedure_line">
+                            <tree string="PCBA Procedure Group">
+                                <field name="number"/>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                        <div class="oe_clear"/>
+                        <field name="description" class="oe_inline" placeholder="Description..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pcba_test_group_list" model="ir.ui.view">
+            <field name="name">PCBA Test Group: list</field>
+            <field name="model">mft.pcba_test_group</field>
+            <field name="arch" type="xml">
+                <tree colors="grey:state=='cancel';blue:state in ('confirmed');red: state in ('stopped');">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="pcba_test_group_search" model="ir.ui.view">
+            <field name="name">PCBA Test Group: search</field>
+            <field name="model">mft.pcba_test_group</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="pcba_procedure_group_form" model="ir.ui.view">
+            <field name="name">Procedure: form</field>
+            <field name="model">mft.pcba_procedure_group</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="number"/>
+                            <field name="name"/>
+                            <field name="test_config"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_pcbas" model="ir.actions.act_window">
+            <field name="name">PCBA Test Records</field>
+            <field name="res_model">mft.pcbas</field>
+        </record>
+
+        <record id="pcbas_form" model="ir.ui.view">
+            <field name="name">PCBA Test Records: form</field>
+            <field name="model">mft.pcbas</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="order_id" readonly="1"/>
+                            <field name="pcba_id" readonly="1"/>
+                            <field name="name" readonly="1"/>
+                            <field name="pass_flag" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Test Details">
+                                <field name="test_ids" readonly="1">
+                                    <tree string="test result">
+                                        <field name="procedure_id"/>
+                                        <field name="pass_flag"/>
+                                        <field name="test_user"/>
+                                        <field name="write_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Test Group Details">
+                                <field name="grouptest_ids" readonly="1">
+                                    <tree string="Product Test Info">
+                                        <field name="procedure_id"/>
+                                        <field name="pass_flag"/>
+                                        <field name="test_user"/>
+                                        <field name="write_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pcbas_list" model="ir.ui.view">
+            <field name="name">PCBA Test Records: list</field>
+            <field name="model">mft.pcbas</field>
+            <field name="arch" type="xml">
+                <tree string="PCBAs">
+                    <field name="order_id" readonly="1"/>
+                    <field name="pcba_id" readonly="1"/>
+                    <field name="name" readonly="1"/>
+                    <field name="pass_flag" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="pcbas_search" model="ir.ui.view">
+            <field name="name">PCBA Test Records: search</field>
+            <field name="model">mft.pcbas</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="order_id"/>
+                    <field name="pcba_id"/>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="pcba_test_form" model="ir.ui.view">
+            <field name="name">Test Details: form</field>
+            <field name="model">mft.pcba_test</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1>
+                            <label string="Test Details" />
+                        </h1>
+                        <group>
+                            <field name="pcba_id" readonly="1"/>
+                            <field name="parts_id" readonly="1"/>
+                            <field name="test_user" readonly="1"/>
+                            <field name="procedure_id" readonly="1"/>
+                            <field name="pass_flag" readonly="1"/>
+                            <field name="test_result" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pcba_grouptest_form" model="ir.ui.view">
+            <field name="name">Test Group Details: form</field>
+            <field name="model">mft.pcba_grouptest</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1>
+                            <label string="Test Group Details" />
+                        </h1>
+                        <group>
+                            <field name="pcba_id" readonly="1"/>
+                            <field name="parts_id" readonly="1"/>
+                            <field name="test_user" readonly="1"/>
+                            <field name="procedure_id" readonly="1"/>
+                            <field name="pass_flag" readonly="1"/>
+                            <field name="test_result" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_sb_work_order" model="ir.actions.act_window">
+            <field name="name">Sandbox Work Order</field>
+            <field name="res_model">mft.sb_work_order</field>
+        </record>
+
+        <record id="sb_work_order_form" model="ir.ui.view">
+            <field name="name">Sandbox Work Order: form</field>
+            <field name="model">mft.sb_work_order</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1>
+                            <label string="Work Order" />
+                            <field name="name" class="oe_inline" readonly="1"/>
+                        </h1>
+                        <group>
+                            <field name="ref_order"/>
+                            <field name="product_id"/>
+                            <field name="fw_version"/>
+                            <field name="bt_version"/>
+                            <field name="oem_id"/>
+                            <field name="count"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sb_work_order_list" model="ir.ui.view">
+            <field name="name">Sandbox Work Order: list</field>
+            <field name="model">mft.sb_work_order</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" readonly="1"/>
+                    <field name="product_id" readonly="1"/>
+                    <field name="count" readonly="1"/>
+                    <field name="create_date" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sb_work_order_search" model="ir.ui.view">
+            <field name="name">Sandbox Work Order: search</field>
+            <field name="model">mft.sb_work_order</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_sb_pcba_order" model="ir.actions.act_window">
+            <field name="name">Sandbox PCBA Work Order</field>
+            <field name="res_model">mft.sb_pcba_order</field>
+        </record>
+
+        <record id="sb_pcba_order_form" model="ir.ui.view">
+            <field name="name">Sandbox PCBA Work Order: form</field>
+            <field name="model">mft.sb_pcba_order</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1>
+                            <label string="PCBA Work Order" />
+                            <field name="name" class="oe_inline" readonly="1"/>
+                        </h1>
+                        <group>
+                            <field name="ref_order"/>
+                            <field name="name_id"/>
+                            <field name="fw_version"/>
+                            <field name="bt_version"/>
+                            <field name="count"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sb_pcba_order_list" model="ir.ui.view">
+            <field name="name">Sandbox PCBA Work Order: list</field>
+            <field name="model">mft.sb_pcba_order</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="name_id"/>
+                    <field name="count"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sb_pcba_order_search" model="ir.ui.view">
+            <field name="name">Sandbox PCBA Work Order: search</field>
+            <field name="model">mft.sb_pcba_order</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="name_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_delivery_company" model="ir.actions.act_window">
+            <field name="name">Delivery Company Management</field>
+            <field name="res_model">mft.delivery_company</field>
+        </record>
+
+        <record id="delivery_company_form" model="ir.ui.view">
+            <field name="name">Delevery Company: form</field>
+            <field name="model">mft.delivery_company</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_toconfirm" states="draft" string="Request Confirm" type="object" groups="base.group_mft_rd"/>
+                        <button name="action_confirmed" states="toconfirm" string="Confirmed" type="object" groups="base.group_mft_pe"/>
+                        <button name="action_recover" states="confirmed" string="Recovery" type="object" groups="base.group_mft_pe"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,toconfirm,confirmed"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="contact_name"/>
+                            <field name="contact_phone"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="delivery_company_list" model="ir.ui.view">
+            <field name="name">Delivery Company: list</field>
+            <field name="model">mft.delivery_company</field>
+            <field name="arch" type="xml">
+                <tree colors="grey:state=='cancel';blue:state in ('confirmed');red: state in ('stopped');">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_delivery_orders" model="ir.actions.act_window">
+            <field name="name">Delivery Orders</field>
+            <field name="res_model">mft.delivery_orders</field>
+        </record>
+
+        <record id="delivery_orders_form" model="ir.ui.view">
+            <field name="name">Delivery Orders: form</field>
+            <field name="model">mft.delivery_orders</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_toconfirm" states="draft" string="Request Confirm" type="object" groups="base.group_mft_leader"/>
+                        <button name="action_confirmed" states="toconfirm" string="Confirmed" type="object" groups="base.group_mft_manager"/>
+                        <button name="action_cancel" states="toconfirm,confirmed" string="Cancel" type="object" groups="base.group_mft_manager"/>
+                        <button name="action_recover" states="toconfirm,confirmed,cancel" string="Recovery" type="object" groups="base.group_mft_manager"/>
+                        <button name="action_done" states="confirmed" string="Done" type="object" groups="base.group_mft_leader"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,toconfirm,confirmed,done,cancel"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <label string="Delivery Management" />
+                            <field name="name" class="oe_inline" readonly="1"/>
+                        </h1>
+                        <group>
+                            <field name="sale_order"/>
+                            <field name="customer"/>
+                            <field name="address"/>
+                            <field name="contact_number"/>
+                            <field name="sales_name"/>
+                            <field name="sales_phone"/>
+                            <field name="delivery_company" domain="[('state','=','confirmed')]"/>
+                            <field name="delivery_number"/>
+                            <field name="delivery_state"/>
+                        </group>
+                        <notebook>
+                            <page string="List of Goods">
+                                <field name="delivery_list">
+                                    <tree string="Delivery List" editable="bottom">
+                                        <field name="part_number"/>
+                                        <field name="product_name"/>
+                                        <field name="unit"/>
+                                        <field name="count"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Products SN">
+                                <field name="delivery_sn" readonly="1">
+                                    <tree string="Products">
+                                        <field name="name" readonly="1"/>
+                                        <field name="mac_addr" readonly="1"/>
+                                        <field name="pass_flag" readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <div class="oe_clear"/>
+                        <field name="notes" class="oe_inline" placeholder="Description..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="delivery_orders_list" model="ir.ui.view">
+            <field name="name">Delivery Management: list</field>
+            <field name="model">mft.delivery_orders</field>
+            <field name="arch" type="xml">
+                <tree colors="grey:state=='cancel';blue:state in ('done');">
+                    <field name="name" readonly="1"/>
+                    <field name="sale_order" readonly="1"/>
+                    <field name="customer" readonly="1"/>
+                    <field name="contact_number" readonly="1"/>
+                    <field name="create_date" readonly="1"/>
+                    <field name="state" readonly="1" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="delivery_orders_search" model="ir.ui.view">
+            <field name="name">Delivery Management: search</field>
+            <field name="model">mft.delivery_orders</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="customer"/>
+                    <field name="sale_order"/>
+                    <field name="sales_name"/>
+                </search>
+            </field>
+        </record>
+
+        <menuitem sequence="0" id="menu_mft_system" name="Manufacture System"/>
+        <menuitem id="menu_product"
+                  parent="menu_mft_system"
+                  name="Products"/>
+        <menuitem id="menu_product_wo"
+                  parent="menu_product"
+                  action="action_product_wo"
+                  name="Product Work Order"/>
+        <menuitem id="menu_product_test_group"
+                  parent="menu_product"
+                  action="action_product_test_group"
+                  name="Product Test Group"/>
+        <menuitem id="menu_product_name"
+                  parent="menu_product"
+                  action="action_product_name"
+                  name="Product Name"/>
+        <menuitem id="menu_oem_name"
+                  parent="menu_product"
+                  action="action_oem_name"
+                  name="OEM Name"/>
+        <menuitem id="menu_print_template"
+                  parent="menu_product"
+                  action="action_print_template"
+                  name="Print Template"/>
+        <menuitem id="menu_products"
+                  parent="menu_product"
+                  action="action_products"
+                  name="Test Records"/>
+        <menuitem id="menu_pcba"
+                  parent="menu_mft_system"
+                  name="PCBA"/>
+        <menuitem id="menu_pcba_order"
+                  parent="menu_pcba"
+                  action="action_pcba_order"
+                  name="PCBA Work Order"/>
+        <menuitem id="menu_pcba_test_group"
+                  parent="menu_pcba"
+                  action="action_pcba_test_group"
+                  name="PCBA Test Group"/>
+        <menuitem id="menu_pcba_name"
+                  parent="menu_pcba"
+                  action="action_pcba_name"
+                  name="PCBA Name"/>
+        <menuitem id="menu_pcbas"
+                  parent="menu_pcba"
+                  action="action_pcbas"
+                  name="PCBA Test Records"/>
+        <menuitem id="menu_sandbox"
+                  parent="menu_mft_system"
+                  name="SandBox"/>
+        <menuitem id="menu_sb_work_order"
+                  parent="menu_sandbox"
+                  action="action_sb_work_order"
+                  name="Product Work Order"/>
+        <menuitem id="menu_sb_pcba_order"
+                  parent="menu_sandbox"
+                  action="action_sb_pcba_order"
+                  name="PCBA Work Order"/>
+        <menuitem id="menu_delivery"
+                  parent="menu_mft_system"
+                  name="Delivery Management"/>
+        <menuitem id="menu_delivery_company"
+                  parent="menu_delivery"
+                  action="action_delivery_company"
+                  name="Delivery Company Management"/>
+        <menuitem id="menu_delivery_orders"
+                  parent="menu_delivery"
+                  action="action_delivery_orders"
+                  name="Delivery Orders"/>
+    </data>
+</openerp>

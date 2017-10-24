@@ -1,0 +1,956 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* mft_system
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-09 09:19+0000\n"
+"PO-Revision-Date: 2017-10-09 09:19+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mft_system
+#: field:mft.delivery_orders,address:0
+msgid "Address"
+msgstr "发货地址"
+
+#. module: mft_system
+#: selection:mft.delivery_company,state:0
+#: view:mft.delivery_orders:mft_system.delivery_orders_form
+#: selection:mft.delivery_orders,state:0
+#: selection:mft.oem_name,state:0
+#: selection:mft.pcba_name,state:0
+#: view:mft.pcba_order:mft_system.pcba_order_form
+#: selection:mft.pcba_order,state:0
+#: selection:mft.pcba_test_group,state:0
+#: selection:mft.print_template,state:0
+#: view:mft.work_order:mft_system.product_wo_form
+#: selection:mft.work_order,state:0
+msgid "Cancel"
+msgstr "取消"
+
+#. module: mft_system
+#: view:mft.product_name:mft_system.product_name_form
+#: field:mft.product_pcbas,pcba_line_id:0
+#: view:mft.products:mft_system.products_form
+#: field:mft.products,pcba_line_ids:0
+msgid "Composition"
+msgstr "组成"
+
+#. module: mft_system
+#: view:mft.delivery_company:mft_system.delivery_company_form
+#: selection:mft.delivery_company,state:0
+#: view:mft.delivery_orders:mft_system.delivery_orders_form
+#: selection:mft.delivery_orders,state:0
+#: view:mft.oem_name:mft_system.oem_name_form
+#: selection:mft.oem_name,state:0
+#: view:mft.pcba_order:mft_system.pcba_order_form
+#: selection:mft.pcba_order,state:0
+#: view:mft.print_template:mft_system.print_template_form
+#: selection:mft.print_template,state:0
+#: view:mft.work_order:mft_system.product_wo_form
+#: selection:mft.work_order,state:0
+msgid "Confirmed"
+msgstr "确认"
+
+#. module: mft_system
+#: field:mft.delivery_company,contact_name:0
+msgid "Contact Name"
+msgstr "联系人"
+
+#. module: mft_system
+#: field:mft.delivery_orders,contact_number:0
+msgid "Contact Number"
+msgstr "联系电话"
+
+#. module: mft_system
+#: field:mft.delivery_company,contact_phone:0
+msgid "Contact Phone"
+msgstr "电话"
+
+#. module: mft_system
+#: field:mft.delivery_list,count:0
+#: field:mft.pcba_order,count:0
+#: field:mft.sb_pcba_order,count:0
+#: field:mft.sb_work_order,count:0
+#: field:mft.work_order,count:0
+msgid "Count"
+msgstr "数量"
+
+#. module: mft_system
+#: field:mft.delivery_company,create_uid:0
+#: field:mft.delivery_list,create_uid:0
+#: field:mft.delivery_orders,create_uid:0
+#: field:mft.oem_name,create_uid:0
+#: field:mft.oemname_env,create_uid:0
+#: field:mft.pcba_env,create_uid:0
+#: field:mft.pcba_grouptest,create_uid:0
+#: field:mft.pcba_name,create_uid:0
+#: field:mft.pcba_order,create_uid:0
+#: field:mft.pcba_procedure,create_uid:0
+#: field:mft.pcba_procedure_group,create_uid:0
+#: field:mft.pcba_test,create_uid:0
+#: field:mft.pcba_test_group,create_uid:0
+#: field:mft.pcbas,create_uid:0
+#: field:mft.pd_pcba_line,create_uid:0
+#: field:mft.print_template,create_uid:0
+#: field:mft.procedure,create_uid:0
+#: field:mft.procedure_group,create_uid:0
+#: field:mft.product_env,create_uid:0
+#: field:mft.product_grouptest,create_uid:0
+#: field:mft.product_name,create_uid:0
+#: field:mft.product_pcbas,create_uid:0
+#: field:mft.product_test,create_uid:0
+#: field:mft.product_test_group,create_uid:0
+#: field:mft.products,create_uid:0
+#: field:mft.sb_pcba_order,create_uid:0
+#: field:mft.sb_work_order,create_uid:0
+#: field:mft.work_order,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: mft_system
+#: field:mft.delivery_company,create_date:0
+#: field:mft.delivery_list,create_date:0
+#: field:mft.delivery_orders,create_date:0
+#: field:mft.oem_name,create_date:0
+#: field:mft.oemname_env,create_date:0
+#: field:mft.pcba_env,create_date:0
+#: field:mft.pcba_grouptest,create_date:0
+#: field:mft.pcba_name,create_date:0
+#: field:mft.pcba_order,create_date:0
+#: field:mft.pcba_procedure,create_date:0
+#: field:mft.pcba_procedure_group,create_date:0
+#: field:mft.pcba_test,create_date:0
+#: field:mft.pcba_test_group,create_date:0
+#: field:mft.pcbas,create_date:0
+#: field:mft.pd_pcba_line,create_date:0
+#: field:mft.print_template,create_date:0
+#: field:mft.procedure,create_date:0
+#: field:mft.procedure_group,create_date:0
+#: field:mft.product_env,create_date:0
+#: field:mft.product_grouptest,create_date:0
+#: field:mft.product_name,create_date:0
+#: field:mft.product_pcbas,create_date:0
+#: field:mft.product_test,create_date:0
+#: field:mft.product_test_group,create_date:0
+#: field:mft.products,create_date:0
+#: field:mft.sb_pcba_order,create_date:0
+#: field:mft.sb_work_order,create_date:0
+#: field:mft.work_order,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: mft_system
+#: field:mft.delivery_orders,customer:0
+msgid "Customer Name"
+msgstr "客户名称"
+
+#. module: mft_system
+#: field:mft.delivery_company,name:0
+#: field:mft.delivery_orders,delivery_company:0
+msgid "Delivery Company"
+msgstr "快递公司"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_delivery_company
+#: model:ir.ui.menu,name:mft_system.menu_delivery_company
+msgid "Delivery Company Management"
+msgstr "货运公司管理"
+
+#. module: mft_system
+#: view:mft.delivery_orders:mft_system.delivery_orders_form
+#: field:mft.delivery_orders,delivery_list:0
+msgid "Delivery List"
+msgstr "发货清单"
+
+#. module: mft_system
+#: model:ir.ui.menu,name:mft_system.menu_delivery
+#: view:mft.delivery_orders:mft_system.delivery_orders_form
+msgid "Delivery Management"
+msgstr "发货管理"
+
+#. module: mft_system
+#: field:mft.delivery_orders,delivery_number:0
+msgid "Delivery Number"
+msgstr "快递单号"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_delivery_orders
+#: model:ir.ui.menu,name:mft_system.menu_delivery_orders
+msgid "Delivery Orders"
+msgstr "发货单"
+
+#. module: mft_system
+#: field:mft.delivery_orders,delivery_state:0
+msgid "Delivery State"
+msgstr "物流状态"
+
+#. module: mft_system
+#: field:mft.delivery_company,description:0
+#: field:mft.oem_name,description:0
+#: field:mft.pcba_name,description:0
+#: field:mft.pcba_order,description:0
+#: field:mft.pcba_test_group,description:0
+#: field:mft.pd_pcba_line,name:0
+#: field:mft.print_template,description:0
+#: field:mft.product_name,description:0
+#: field:mft.product_test_group,description:0
+#: field:mft.sb_pcba_order,description:0
+msgid "Description"
+msgstr "描述"
+
+#. module: mft_system
+#: view:mft.delivery_orders:mft_system.delivery_orders_form
+#: view:mft.pcba_name:mft_system.pcba_name_form
+#: view:mft.pcba_test_group:mft_system.pcba_test_group_form
+#: view:mft.product_name:mft_system.product_name_form
+#: view:mft.product_test_group:mft_system.product_test_group_form
+msgid "Description..."
+msgstr "描述..."
+
+#. module: mft_system
+#: selection:mft.pcba_name,state:0
+#: selection:mft.pcba_test_group,state:0
+#: selection:mft.product_name,state:0
+#: selection:mft.product_test_group,state:0
+msgid "Developping"
+msgstr "研发中"
+
+#. module: mft_system
+#: view:mft.delivery_orders:mft_system.delivery_orders_form
+#: selection:mft.delivery_orders,state:0
+#: view:mft.pcba_order:mft_system.pcba_order_form
+#: selection:mft.pcba_order,state:0
+#: view:mft.work_order:mft_system.product_wo_form
+#: selection:mft.work_order,state:0
+msgid "Done"
+msgstr "完成"
+
+#. module: mft_system
+#: selection:mft.delivery_company,state:0
+#: selection:mft.delivery_orders,state:0
+#: selection:mft.oem_name,state:0
+#: selection:mft.pcba_order,state:0
+#: selection:mft.print_template,state:0
+#: selection:mft.work_order,state:0
+msgid "Draft"
+msgstr "草稿"
+
+#. module: mft_system
+#: view:mft.pcba_name:mft_system.pcba_name_form
+#: selection:mft.pcba_name,state:0
+#: view:mft.pcba_test_group:mft_system.pcba_test_group_form
+#: selection:mft.pcba_test_group,state:0
+#: view:mft.product_name:mft_system.product_name_form
+#: selection:mft.product_name,state:0
+#: view:mft.product_test_group:mft_system.product_test_group_form
+#: selection:mft.product_test_group,state:0
+msgid "EOL"
+msgstr "停产"
+
+#. module: mft_system
+#: field:mft.products,encryption_sn:0
+msgid "Encrypted Chip SN"
+msgstr "加密芯片序列号"
+
+#. module: mft_system
+#: field:mft.pcba_order,fw_version:0
+#: field:mft.sb_pcba_order,fw_version:0
+#: field:mft.sb_work_order,fw_version:0
+#: field:mft.work_order,fw_version:0
+msgid "Firmware Version"
+msgstr "软件版本号"
+
+#. module: mft_system
+#: field:mft.products,grouptest_ids:0
+msgid "Group Test Detail"
+msgstr "组测试详情"
+
+#. module: mft_system
+#: field:mft.products,ICCID:0
+msgid "ICCID"
+msgstr "ICCID号"
+
+#. module: mft_system
+#: field:mft.delivery_company,id:0
+#: field:mft.delivery_list,id:0
+#: field:mft.delivery_orders,id:0
+#: field:mft.oem_name,id:0
+#: field:mft.oemname_env,id:0
+#: field:mft.pcba_env,id:0
+#: field:mft.pcba_grouptest,id:0
+#: field:mft.pcba_name,id:0
+#: field:mft.pcba_order,id:0
+#: field:mft.pcba_procedure,id:0
+#: field:mft.pcba_procedure_group,id:0
+#: field:mft.pcba_test,id:0
+#: field:mft.pcba_test_group,id:0
+#: field:mft.pcbas,id:0
+#: field:mft.pd_pcba_line,id:0
+#: field:mft.print_template,id:0
+#: field:mft.procedure,id:0
+#: field:mft.procedure_group,id:0
+#: field:mft.product_env,id:0
+#: field:mft.product_grouptest,id:0
+#: field:mft.product_name,id:0
+#: field:mft.product_pcbas,id:0
+#: field:mft.product_test,id:0
+#: field:mft.product_test_group,id:0
+#: field:mft.products,id:0
+#: field:mft.sb_pcba_order,id:0
+#: field:mft.sb_work_order,id:0
+#: field:mft.work_order,id:0
+msgid "ID"
+msgstr "标识"
+
+#. module: mft_system
+#: field:mft.products,IMEI:0
+msgid "IMEI"
+msgstr "IMEI号"
+
+#. module: mft_system
+#: field:mft.pcba_procedure,number:0
+#: field:mft.pcba_procedure_group,number:0
+#: field:mft.procedure,number:0
+#: field:mft.procedure_group,number:0
+msgid "Index"
+msgstr "编号"
+
+#. module: mft_system
+#: code:addons\mft_system\models.py:66
+#: code:addons\mft_system\models.py:126
+#: code:addons\mft_system\models.py:177
+#: code:addons\mft_system\models.py:230
+#: code:addons\mft_system\models.py:296
+#: code:addons\mft_system\models.py:311
+#: code:addons\mft_system\models.py:508
+#: code:addons\mft_system\models.py:567
+#: code:addons\mft_system\models.py:633
+#: code:addons\mft_system\models.py:648
+#: code:addons\mft_system\models.py:828
+#: code:addons\mft_system\models.py:878
+#, python-format
+msgid "Invalid Action!"
+msgstr "Invalid Action!"
+
+#. module: mft_system
+#: field:mft.oem_name,language:0
+msgid "Language"
+msgstr "语言"
+
+#. module: mft_system
+#: field:mft.delivery_company,write_uid:0
+#: field:mft.delivery_list,write_uid:0
+#: field:mft.delivery_orders,write_uid:0
+#: field:mft.oem_name,write_uid:0
+#: field:mft.oemname_env,write_uid:0
+#: field:mft.pcba_env,write_uid:0
+#: field:mft.pcba_grouptest,write_uid:0
+#: field:mft.pcba_name,write_uid:0
+#: field:mft.pcba_order,write_uid:0
+#: field:mft.pcba_procedure,write_uid:0
+#: field:mft.pcba_procedure_group,write_uid:0
+#: field:mft.pcba_test,write_uid:0
+#: field:mft.pcba_test_group,write_uid:0
+#: field:mft.pcbas,write_uid:0
+#: field:mft.pd_pcba_line,write_uid:0
+#: field:mft.print_template,write_uid:0
+#: field:mft.procedure,write_uid:0
+#: field:mft.procedure_group,write_uid:0
+#: field:mft.product_env,write_uid:0
+#: field:mft.product_grouptest,write_uid:0
+#: field:mft.product_name,write_uid:0
+#: field:mft.product_pcbas,write_uid:0
+#: field:mft.product_test,write_uid:0
+#: field:mft.product_test_group,write_uid:0
+#: field:mft.products,write_uid:0
+#: field:mft.sb_pcba_order,write_uid:0
+#: field:mft.sb_work_order,write_uid:0
+#: field:mft.work_order,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: mft_system
+#: field:mft.delivery_company,write_date:0
+#: field:mft.delivery_list,write_date:0
+#: field:mft.delivery_orders,write_date:0
+#: field:mft.oem_name,write_date:0
+#: field:mft.oemname_env,write_date:0
+#: field:mft.pcba_env,write_date:0
+#: field:mft.pcba_grouptest,write_date:0
+#: field:mft.pcba_name,write_date:0
+#: field:mft.pcba_order,write_date:0
+#: field:mft.pcba_procedure,write_date:0
+#: field:mft.pcba_procedure_group,write_date:0
+#: field:mft.pcba_test,write_date:0
+#: field:mft.pcba_test_group,write_date:0
+#: field:mft.pcbas,write_date:0
+#: field:mft.pd_pcba_line,write_date:0
+#: field:mft.print_template,write_date:0
+#: field:mft.procedure,write_date:0
+#: field:mft.procedure_group,write_date:0
+#: field:mft.product_env,write_date:0
+#: field:mft.product_grouptest,write_date:0
+#: field:mft.product_name,write_date:0
+#: field:mft.product_pcbas,write_date:0
+#: field:mft.product_test,write_date:0
+#: field:mft.product_test_group,write_date:0
+#: field:mft.products,write_date:0
+#: field:mft.sb_pcba_order,write_date:0
+#: field:mft.sb_work_order,write_date:0
+#: field:mft.work_order,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: mft_system
+#: view:mft.delivery_orders:mft_system.delivery_orders_form
+msgid "List of Goods"
+msgstr "发货清单"
+
+#. module: mft_system
+#: field:mft.products,mac_addr:0
+msgid "MAC Address"
+msgstr "MAC地址"
+
+#. module: mft_system
+#: field:mft.products,mac_addr2:0
+msgid "MAC Address 2"
+msgstr "MAC地址2"
+
+#. module: mft_system
+#: field:mft.products,mac_addr3:0
+msgid "MAC Address 3"
+msgstr "MAC地址3"
+
+#. module: mft_system
+#: model:ir.module.category,description:mft_system.module_category_mft_system
+#: model:ir.module.category,name:mft_system.module_category_mft_system
+#: model:ir.ui.menu,name:mft_system.menu_mft_system
+msgid "Manufacture System"
+msgstr "生产管理系统"
+
+#. module: mft_system
+#: field:mft.pd_pcba_line,pcba_id:0
+msgid "Module Name"
+msgstr "模块名称"
+
+#. module: mft_system
+#: field:mft.products,module_version:0
+msgid "Module Version"
+msgstr "模块版本"
+
+#. module: mft_system
+#: field:mft.oemname_env,name:0
+#: field:mft.pcba_env,name:0
+#: field:mft.product_env,name:0
+msgid "Name"
+msgstr "名称"
+
+#. module: mft_system
+#: field:mft.delivery_orders,notes:0
+msgid "Note"
+msgstr "备注"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_oem_name
+#: model:ir.ui.menu,name:mft_system.menu_oem_name
+#: field:mft.oem_name,name:0
+#: field:mft.oemname_env,oemname_id:0
+#: field:mft.products,oem_id:0
+#: field:mft.sb_work_order,oem_id:0
+#: field:mft.work_order,oem_id:0
+msgid "OEM Name"
+msgstr "OEM名称"
+
+#. module: mft_system
+#: view:mft.oem_name:mft_system.oem_name_form
+msgid "OEMName Env"
+msgstr "OEMName Env"
+
+#. module: mft_system
+#: model:ir.ui.menu,name:mft_system.menu_pcba
+#: field:mft.pcbas,grouptest_ids:0
+#: field:mft.pcbas,test_ids:0
+#: field:mft.product_name,pcba_line:0
+msgid "PCBA"
+msgstr "PCBA"
+
+#. module: mft_system
+#: view:mft.product_name:mft_system.product_name_form
+msgid "PCBA Lines"
+msgstr "PCBA Lines"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_pcba_name
+#: model:ir.ui.menu,name:mft_system.menu_pcba_name
+#: field:mft.pcba_env,pcba_id:0
+#: field:mft.pcba_grouptest,pcba_id:0
+#: field:mft.pcba_name,name:0
+#: field:mft.pcba_order,name_id:0
+#: field:mft.pcba_procedure,pcba_id:0
+#: field:mft.pcba_procedure_group,pcba_test_group_id:0
+#: field:mft.pcba_test,pcba_id:0
+#: field:mft.pcbas,pcba_id:0
+#: field:mft.product_pcbas,pcba_name:0
+#: field:mft.sb_pcba_order,name_id:0
+msgid "PCBA Name"
+msgstr "PCBA名称"
+
+#. module: mft_system
+#: field:mft.pcba_order,name:0
+#: field:mft.pcbas,order_id:0
+#: field:mft.sb_pcba_order,name:0
+msgid "PCBA Order"
+msgstr "PCBA工单"
+
+#. module: mft_system
+#: view:mft.pcba_test_group:mft_system.pcba_test_group_form
+msgid "PCBA Procedure Group"
+msgstr "PCBA Procedure Group"
+
+#. module: mft_system
+#: field:mft.pcba_grouptest,parts_id:0
+#: field:mft.pcba_order,pcba_ids:0
+#: field:mft.pcba_test,parts_id:0
+#: field:mft.pcbas,name:0
+#: field:mft.product_pcbas,pcba_sn:0
+msgid "PCBA SN"
+msgstr "PCBA序列号"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_pcba_test_group
+#: model:ir.ui.menu,name:mft_system.menu_pcba_test_group
+#: field:mft.pcba_name,test_group_id:0
+#: field:mft.pcba_test_group,name:0
+msgid "PCBA Test Group"
+msgstr "PCBA测试组"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_pcbas
+#: model:ir.ui.menu,name:mft_system.menu_pcbas
+msgid "PCBA Test Records"
+msgstr "PCBA测试记录"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_pcba_order
+#: model:ir.ui.menu,name:mft_system.menu_pcba_order
+#: model:ir.ui.menu,name:mft_system.menu_sb_pcba_order
+#: view:mft.pcba_order:mft_system.pcba_order_form
+#: view:mft.sb_pcba_order:mft_system.sb_pcba_order_form
+msgid "PCBA Work Order"
+msgstr "PCBA工单"
+
+#. module: mft_system
+#: view:mft.pcbas:mft_system.pcbas_list
+msgid "PCBAs"
+msgstr "PCBAs"
+
+#. module: mft_system
+#: field:mft.delivery_list,part_number:0
+#: field:mft.pcba_name,partnumber:0
+#: field:mft.product_name,partnumber:0
+msgid "Part Number"
+msgstr "物料号"
+
+#. module: mft_system
+#: field:mft.pcba_grouptest,pass_flag:0
+#: field:mft.pcba_test,pass_flag:0
+#: field:mft.pcbas,pass_flag:0
+#: field:mft.product_grouptest,pass_flag:0
+#: field:mft.product_test,pass_flag:0
+#: field:mft.products,pass_flag:0
+msgid "Pass Flag"
+msgstr "是否通过？"
+
+#. module: mft_system
+#: view:mft.pcba_name:mft_system.pcba_name_form
+msgid "Pcba Env"
+msgstr "Pcba Env"
+
+#. module: mft_system
+#: field:mft.products,phone_number:0
+msgid "Phone Number"
+msgstr "电话号码"
+
+#. module: mft_system
+#: view:mft.pcba_name:mft_system.pcba_name_form
+#: selection:mft.pcba_name,state:0
+#: view:mft.pcba_test_group:mft_system.pcba_test_group_form
+#: selection:mft.pcba_test_group,state:0
+#: view:mft.product_name:mft_system.product_name_form
+#: selection:mft.product_name,state:0
+#: view:mft.product_test_group:mft_system.product_test_group_form
+#: selection:mft.product_test_group,state:0
+msgid "Pre-production"
+msgstr "试生产"
+
+#. module: mft_system
+#: field:mft.print_template,height:0
+msgid "Print Height"
+msgstr "打印高度"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_print_template
+#: model:ir.ui.menu,name:mft_system.menu_print_template
+msgid "Print Template"
+msgstr "打印模板"
+
+#. module: mft_system
+#: field:mft.print_template,width:0
+msgid "Print Width"
+msgstr "打印宽度"
+
+#. module: mft_system
+#: field:mft.products,private_key:0
+msgid "Private Key"
+msgstr "私钥"
+
+#. module: mft_system
+#: field:mft.pcba_grouptest,procedure_id:0
+#: view:mft.pcba_name:mft_system.pcba_name_form
+#: field:mft.pcba_name,procedure_line:0
+#: field:mft.pcba_test,procedure_id:0
+#: field:mft.pcba_test_group,procedure_line:0
+#: field:mft.product_grouptest,procedure_id:0
+#: view:mft.product_name:mft_system.product_name_form
+#: field:mft.product_name,procedure_line:0
+#: field:mft.product_test,procedure_id:0
+#: view:mft.product_test_group:mft_system.product_test_group_form
+#: field:mft.product_test_group,procedure_line:0
+msgid "Procedure"
+msgstr "工序"
+
+#. module: mft_system
+#: field:mft.pcba_procedure,name:0
+#: field:mft.pcba_procedure_group,name:0
+#: field:mft.procedure,name:0
+#: field:mft.procedure_group,name:0
+msgid "Procedure Name"
+msgstr "工序名称"
+
+#. module: mft_system
+#: view:mft.product_test_group:mft_system.product_test_group_form
+msgid "ProcedureGroup"
+msgstr "ProcedureGroup"
+
+#. module: mft_system
+#: view:mft.products:mft_system.products_form
+msgid "Product Construction"
+msgstr "Product Construction"
+
+#. module: mft_system
+#: view:mft.product_name:mft_system.product_name_form
+msgid "Product Env"
+msgstr "Product Env"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_product_name
+#: model:ir.ui.menu,name:mft_system.menu_product_name
+#: field:mft.delivery_list,product_name:0
+#: field:mft.pd_pcba_line,product_id:0
+#: field:mft.procedure,product_id:0
+#: field:mft.product_env,product_id:0
+#: field:mft.product_grouptest,product_id:0
+#: view:mft.product_name:mft_system.product_name_form
+#: field:mft.product_pcbas,product_id:0
+#: field:mft.product_test,product_id:0
+#: field:mft.products,product_id:0
+#: field:mft.sb_work_order,product_id:0
+#: field:mft.work_order,product_id:0
+msgid "Product Name"
+msgstr "产品名称"
+
+#. module: mft_system
+#: field:mft.delivery_orders,delivery_sn:0
+#: field:mft.product_pcbas,product_sn:0
+msgid "Product SN"
+msgstr "产品序列号"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_product_test_group
+#: model:ir.ui.menu,name:mft_system.menu_product_test_group
+#: field:mft.product_name,test_group_id:0
+#: view:mft.product_test_group:mft_system.product_test_group_form
+#: field:mft.product_test_group,name:0
+msgid "Product Test Group"
+msgstr "产品测试组"
+
+#. module: mft_system
+#: field:mft.procedure_group,test_group_id:0
+msgid "Product Test Group Name"
+msgstr "产品测试组名称"
+
+#. module: mft_system
+#: view:mft.pcbas:mft_system.pcbas_form
+#: view:mft.products:mft_system.products_form
+msgid "Product Test Info"
+msgstr "Product Test Info"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_product_wo
+#: model:ir.ui.menu,name:mft_system.menu_product_wo
+#: model:ir.ui.menu,name:mft_system.menu_sb_work_order
+#: view:mft.work_order:mft_system.product_wo_form
+msgid "Product Work Order"
+msgstr "成品工单"
+
+#. module: mft_system
+#: view:mft.pcba_name:mft_system.pcba_name_form
+#: selection:mft.pcba_name,state:0
+#: view:mft.pcba_test_group:mft_system.pcba_test_group_form
+#: selection:mft.pcba_test_group,state:0
+#: view:mft.product_name:mft_system.product_name_form
+#: selection:mft.product_name,state:0
+#: view:mft.product_test_group:mft_system.product_test_group_form
+#: selection:mft.product_test_group,state:0
+msgid "Production"
+msgstr "已转产"
+
+#. module: mft_system
+#: model:ir.ui.menu,name:mft_system.menu_product
+#: view:mft.delivery_orders:mft_system.delivery_orders_form
+#: field:mft.product_name,name:0
+#: view:mft.work_order:mft_system.product_wo_form
+msgid "Products"
+msgstr "产品名称"
+
+#. module: mft_system
+#: view:mft.delivery_orders:mft_system.delivery_orders_form
+#: field:mft.product_grouptest,parts_id:0
+#: field:mft.product_test,parts_id:0
+#: field:mft.products,name:0
+#: field:mft.work_order,products_ids:0
+msgid "Products SN"
+msgstr "产品序列号"
+
+#. module: mft_system
+#: field:mft.products,public_key:0
+msgid "Public Key"
+msgstr "公钥"
+
+#. module: mft_system
+#: view:mft.delivery_company:mft_system.delivery_company_form
+#: view:mft.delivery_orders:mft_system.delivery_orders_form
+#: view:mft.oem_name:mft_system.oem_name_form
+#: view:mft.pcba_name:mft_system.pcba_name_form
+#: view:mft.pcba_order:mft_system.pcba_order_form
+#: view:mft.pcba_test_group:mft_system.pcba_test_group_form
+#: view:mft.print_template:mft_system.print_template_form
+#: view:mft.product_name:mft_system.product_name_form
+#: view:mft.product_test_group:mft_system.product_test_group_form
+#: view:mft.work_order:mft_system.product_wo_form
+msgid "Recovery"
+msgstr "恢复"
+
+#. module: mft_system
+#: field:mft.pcba_order,ref_order:0
+#: field:mft.sb_pcba_order,ref_order:0
+#: field:mft.sb_work_order,ref_order:0
+#: field:mft.work_order,ref_order:0
+msgid "Related Order"
+msgstr "关联工单"
+
+#. module: mft_system
+#: view:mft.delivery_company:mft_system.delivery_company_form
+#: selection:mft.delivery_company,state:0
+#: view:mft.delivery_orders:mft_system.delivery_orders_form
+#: selection:mft.delivery_orders,state:0
+#: view:mft.oem_name:mft_system.oem_name_form
+#: selection:mft.oem_name,state:0
+#: selection:mft.pcba_order,state:0
+#: selection:mft.work_order,state:0
+#: view:mft.print_template:mft_system.print_template_form
+#: selection:mft.print_template,state:0
+#: view:mft.work_order:mft_system.product_wo_form
+#: view:mft.pcba_order:mft_system.pcba_order_form
+msgid "Request Confirm"
+msgstr "请求确认"
+
+#. module: mft_system
+#: field:mft.delivery_orders,sales_name:0
+msgid "Sales"
+msgstr "销售员"
+
+#. module: mft_system
+#: field:mft.delivery_orders,sale_order:0
+msgid "Sales Order"
+msgstr "销售订单"
+
+#. module: mft_system
+#: field:mft.delivery_orders,sales_phone:0
+msgid "Sales Phone"
+msgstr "销售电话"
+
+#. module: mft_system
+#: model:ir.ui.menu,name:mft_system.menu_sandbox
+msgid "SandBox"
+msgstr "沙盒"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_sb_pcba_order
+msgid "Sandbox PCBA Work Order"
+msgstr "沙盒PCBA工单"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_sb_work_order
+msgid "Sandbox Work Order"
+msgstr "沙盒成品工单"
+
+#. module: mft_system
+#: view:mft.oem_name:mft_system.oem_name_form
+#: field:mft.oem_name,oemname_env:0
+#: view:mft.pcba_name:mft_system.pcba_name_form
+#: field:mft.pcba_name,pcba_env:0
+#: view:mft.product_name:mft_system.product_name_form
+#: field:mft.product_name,product_env:0
+msgid "Self-Defined ENV"
+msgstr "自定义变量"
+
+#. module: mft_system
+#: field:mft.delivery_list,do_id:0
+#: field:mft.delivery_orders,name:0
+#: field:mft.products,do_id:0
+msgid "Shipping Order"
+msgstr "发货单"
+
+#. module: mft_system
+#: field:mft.delivery_company,state:0
+#: field:mft.delivery_orders,state:0
+#: field:mft.oem_name,state:0
+#: field:mft.pcba_name,state:0
+#: field:mft.pcba_order,state:0
+#: field:mft.pcba_test_group,state:0
+#: field:mft.print_template,state:0
+#: field:mft.product_name,state:0
+#: field:mft.product_test_group,state:0
+#: field:mft.work_order,state:0
+msgid "State"
+msgstr "状态"
+
+#. module: mft_system
+#: field:mft.print_template,template:0
+msgid "Template Content"
+msgstr "模版内容"
+
+#. module: mft_system
+#: field:mft.print_template,nick:0
+msgid "Template Name(CN)"
+msgstr "模版名称(CN)"
+
+#. module: mft_system
+#: field:mft.print_template,name:0
+msgid "Template Name(EN)"
+msgstr "模版名称(EN)"
+
+#. module: mft_system
+#: field:mft.products,device_cert:0
+msgid "Terminal Certificate"
+msgstr "终端证书"
+
+#. module: mft_system
+#: field:mft.pcba_procedure,test_config:0
+#: field:mft.pcba_procedure_group,test_config:0
+#: field:mft.procedure,test_config:0
+#: field:mft.procedure_group,test_config:0
+msgid "Test Config"
+msgstr "测试配置"
+
+#. module: mft_system
+#: field:mft.products,test_ids:0
+#: view:mft.pcba_test:mft_system.pcba_test_form
+#: view:mft.pcbas:mft_system.pcbas_form
+#: view:mft.product_test:mft_system.product_test_form
+#: view:mft.products:mft_system.products_form
+msgid "Test Details"
+msgstr "测试详情"
+
+#. module: mft_system
+#: view:mft.pcba_grouptest:mft_system.pcba_grouptest_form
+#: view:mft.pcbas:mft_system.pcbas_form
+#: view:mft.product_grouptest:mft_system.product_grouptest_form
+#: view:mft.products:mft_system.products_form
+msgid "Test Group Details"
+msgstr "组测试详情"
+
+#. module: mft_system
+#: model:ir.actions.act_window,name:mft_system.action_products
+#: model:ir.ui.menu,name:mft_system.menu_products
+msgid "Test Records"
+msgstr "测试记录"
+
+#. module: mft_system
+#: field:mft.pcba_grouptest,test_result:0
+#: field:mft.pcba_test,test_result:0
+#: field:mft.product_grouptest,test_result:0
+#: field:mft.product_test,test_result:0
+msgid "Test Result"
+msgstr "测试结果"
+
+#. module: mft_system
+#: field:mft.delivery_list,unit:0
+msgid "Unit"
+msgstr "单位"
+
+#. module: mft_system
+#: field:mft.oemname_env,value:0
+#: field:mft.pcba_env,value:0
+#: field:mft.product_env,value:0
+msgid "Value"
+msgstr "值"
+
+#. module: mft_system
+#: field:mft.print_template,fn_fields:0
+msgid "Variables Name"
+msgstr "变量名称"
+
+#. module: mft_system
+#: field:mft.oem_name,website:0
+msgid "Website"
+msgstr "网站"
+
+#. module: mft_system
+#: field:mft.products,wo_id:0
+#: view:mft.sb_work_order:mft_system.sb_work_order_form
+#: field:mft.sb_work_order,name:0
+#: field:mft.work_order,name:0
+msgid "Work Order"
+msgstr "成品工单"
+
+#. module: mft_system
+#: field:mft.pcba_grouptest,test_user:0
+#: field:mft.pcba_test,test_user:0
+#: field:mft.product_grouptest,test_user:0
+#: field:mft.product_test,test_user:0
+msgid "Worker"
+msgstr "测试员"
+
+#. module: mft_system
+#: view:mft.pcba_order:mft_system.pcba_order_form
+msgid "pcbas"
+msgstr "pcbas"
+
+#. module: mft_system
+#: view:mft.pcbas:mft_system.pcbas_form
+msgid "test result"
+msgstr "test result"
+
+#. module: mft_system
+#: field:mft.pcba_order,bt_version:0
+#: field:mft.sb_pcba_order,bt_version:0
+#: field:mft.sb_work_order,bt_version:0
+#: field:mft.work_order,bt_version:0
+msgid "uBoot Version"
+msgstr "uBoot版本号"
+
+#. module: mft_system
+#: view:mft.products:mft_system.products_list
+msgid "wo_products"
+msgstr "wo_products"
+

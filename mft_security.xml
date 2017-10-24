@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0">
+
+    <record model="ir.module.category" id="module_category_mft_system">
+        <field name="name">Manufacture System</field>
+        <field name="description">Manufacture System</field>
+        <field name="sequence">200</field>
+    </record>
+
+    <record id="base.group_mft_manager" model="res.groups">
+        <field name="name">Production Manager</field>
+        <field name="category_id" ref="module_category_mft_system"/>
+        <field name="comment">Production Manager have the authority to create work orders, pcb orders.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="base.group_mft_rd" model="res.groups">
+        <field name="name">Developer</field>
+        <field name="category_id" ref="module_category_mft_system"/>
+        <field name="comment">Developers have the authority to create work orders, pcb orders and Products.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="base.group_mft_pe" model="res.groups">
+        <field name="name">Product Engineer</field>
+        <field name="category_id" ref="module_category_mft_system"/>
+        <field name="comment">The product engineer has the authority to audit the products.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="base.group_mft_leader" model="res.groups">
+        <field name="name">Line Leader</field>
+        <field name="category_id" ref="module_category_mft_system"/>
+        <field name="comment">The line leader has the authority to create orders, test records.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="base.group_mft_worker" model="res.groups">
+        <field name="name">Worker</field>
+        <field name="category_id" ref="module_category_mft_system"/>
+        <field name="comment">The worker has the authority to read orders, products and create test records.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+</data>
+<data noupdate="1">
+    <!-- Multi - Company Rules -->
+
+
+</data>
+</openerp>
